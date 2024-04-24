@@ -7,35 +7,52 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MVCMyWeb.styles.css" asp-append-version="true" />
-</head>
-<body>
-     <header>
-            <h1>Welcome to Enrollment Platform</h1>
-      </header>
-    <nav>
-        <ul>
-            <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-            <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Courses">Courses</a></li>
-            <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Students">Students</a></li>
-            <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Enrollments">Enrollments</a></li>
-            <li><a class ="nav-link" asp-area="" asp-controller="Home" asp-action="Visualizations">Visualizations</a></li>
-            <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="AboutUS">About Us</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <style>
+        body {
+            background-image: url('https://st.depositphotos.com/1705350/4917/v/450/depositphotos_49172079-back-to-school-background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
 
-   @*  <footer class="border-top footer text-muted">
+        /* Exclude background image on the Visualizations page */
+
+        /* body.Visualizations {
+                        background-image: none;
+                    } */
+
+    </style>
+</head>
+<body class="@ViewData["PageClass"]">
+    <!-- Add a class based on ViewData -->
+    <div class="content">
+        <header>
+            <h1>Welcome to Enrollment Platform</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Courses">Courses</a></li>
+                <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Students">Students</a></li>
+                <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Enrollments">Enrollments</a></li>
+                <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Visualizations">Charts</a></li>
+                <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="AboutUS">About Us</a></li>
+            </ul>
+        </nav>
         <div class="container">
-            &copy; 2024 - MVCMyWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
+    </div>
+    @*  <footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2024 - MVCMyWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
     </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
