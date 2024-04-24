@@ -1,1 +1,44 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Courses";
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COURSE DETAILS</title>
+    <link rel="stylesheet" href="~/css/site.css">
+    </style>
+</head>
+<body>
+
+    <main>
+        <section>
+            <h2>Course List</h2>
+            <table id="courses-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>title</th>
+                        <th>description</th>
+                        <th>Professor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div id="buttons-container">
+                <button id="edit-course-button">Edit</button>
+                <button id="delete-course-button">Delete</button>
+            </div>
+            <div id="add-course">
+                <button onclick="addCourse()">Add Course</button>
+            </div>
+        </section>
+    </main>
+    <!--<footer>
+    <p>&copy; 2024 Enrollment platform</p>
+    </footer>-->
+    <script src="~/js/site.js"></script>
+</body>
+</html>

@@ -1,1 +1,40 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+    <style>
+        /* Additional CSS for adjusting image width */
+        img {
+            width: 50%;
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Make sure the image is displayed as a block element */
+            margin: 0 auto; /* Center the image horizontally */
+        }
+    </style>
+
+</head>
+<body>
+
+    <main>
+        <section>
+            <img src="~/img/Homeimg.jpg" alt="Image description">
+            <h2>ABOUT PLATFORM</h2>
+            <p>
+                Our website contains information about courses offered,student details and enrollment details.Discover a range of courses available, access student details, and enroll students smoothly on our platform.
+            </p>
+        </section>
+    </main>
+    <script src="~/js/site.js"></script>
+</body>
+</html>
