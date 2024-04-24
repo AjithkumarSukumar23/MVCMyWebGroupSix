@@ -1,1 +1,168 @@
-﻿
+﻿@{
+    ViewData["Title"] = "AboutUs";
+    ViewData["PageClass"] = "AboutUS";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT US</title>
+    <link rel="stylesheet" href="~/css/site.css">
+    <style>
+        /* Center website */
+        .main {
+            width: 80%;
+            margin: auto;
+            padding-top: 20px;
+            padding-bottom: 10px; /* Add padding at the bottom */
+        }
+
+        header {
+            background-color: green;
+            padding: 2px;
+        }
+
+        h1 {
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        p {
+            color: black;
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+        }
+
+        h3 {
+            color: black;
+        }
+
+        .row {
+            margin: 8px -16px;
+        }
+
+            /* Add padding BETWEEN each column */
+            .row,
+            .row > .column {
+                padding: 10px;
+            }
+
+        /* Create four equal columns that float next to each other */
+        .column {
+            float: left;
+            width: 23%;
+            border: 2px solid black; /* Set border color to black */
+            border-radius: 5px; /* Add border radius for a rounded look */
+            overflow: hidden; /* Hide overflowing content */
+            margin: 10px; /* Add margin for spacing between columns */
+            padding: 10px; /* Add padding inside the columns */
+            background-color: white; /* Set background color to white */
+        }
+
+        /* Clear floats after rows */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Content */
+
+
+        /* Style navigation bar */
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                display: flex; /* Use flexbox for horizontal layout */
+            }
+
+                nav ul li {
+                    margin-right: 5px;
+                }
+
+                    nav ul li:last-child {
+                        margin-right: 0; /* Remove margin for the last item */
+                    }
+
+                    nav ul li a {
+                        color: white;
+                        text-decoration: none;
+                        padding: 10px;
+                    }
+
+        /* Center image */
+        .center-image {
+            text-align: center;
+        }
+
+            .center-image img {
+                display: inline-block;
+            }
+    </style>
+</head>
+<body>
+    <!-- MAIN (Center website) -->
+    <div class="main">
+        <div class="content">
+            <h2>PORTFOLIO</h2>
+        </div>
+        <!-- Portfolio Gallery Grid -->
+        <div class="row">
+            <div class="column">
+                <div class="content">
+                    <h3>Pavan Datla</h3>
+                    <img src="~/img/pavan pic.jpg" alt="hi" style="width:70%">
+                    <p>Hi, I'm Pavan Datla, a Business Analytics and Information Systems student at the University of South Florida. With a background as a backend developer.</p>
+                    <p>He developed the 'Home' and 'Courses' sections, ensuring a welcoming first impression and detailed course listings. His work highlights the educational offerings with engaging layouts and interactive elements.</p>
+                    <a href="https://github.com/AjithkumarSukumar23/MVCMyWebGroupSix">Git</a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <h3>Shyam prasad Nalasani</h3>
+                    <img src="~/img/shyam pass pic.jpg" alt="hi" style="width:70%">
+                    <p>"Hi, I'm Shyam Prasad Nalasani, a Business Analytics and Information Systems student at the University of South Florida with a background as an SAP developer." </p>
+                    <p>He crafted the 'About Us' and 'Charts' pages, offering visitors insight into our team and visual data representation. His sections are a testament to the collaborative spirit and analytical strength of our platform."</p>
+                    <a href="https://github.com/AjithkumarSukumar23/MVCMyWebGroupSix">Git</a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <h3>Ajith Kumar Sukumar</h3>
+                    <img src="~/img/ajith pic.jpg" alt="hi" style="width:70%">
+                    <p>Hi, I'm Ajithkumar Sukumar, a Business Analytics and Information Systems student at the University of South Florida with a background as an Automation Tester</p>
+                    <p>He took charge of the 'Enrollments' section, creating a user-friendly interface that simplifies the enrollment process. His contribution makes tracking and managing course registrations seamless and intuitive</p>
+                    <a href="https://github.com/AjithkumarSukumar23/MVCMyWebGroupSix">Git</a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <h3>Yashwanth Reddy</h3>
+                    <img src="~/img/yash.jpg" alt="hi" style="width:70%">
+                    <p>Hi, I'm Yashwanth Reddy Solipuram, a Business Analytics and Information Systems student at the University of South Florida with a bachelor's degree in information technology</p>
+                    <p>His expertise was pivotal in constructing the 'Students' section of our website, providing a comprehensive overview of student resources and information. He facilitated a supportive online environment for student engagement. </p>
+                    <a href="https://github.com/AjithkumarSukumar23/MVCMyWebGroupSix">Git</a>
+                </div>
+            </div>
+        </div>
+        <h2>ERD</h2>
+        <!-- New image -->
+        <div class="content center-image">
+            <img src="~/img/erd.png" alt="Description of your new image" style="width: 70%">
+        </div>
+    </div>
+</body>
+</html>

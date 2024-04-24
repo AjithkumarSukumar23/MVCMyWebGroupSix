@@ -1,1 +1,43 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Enrollments";
+}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENROLLMENT DETAILS</title>
+    <link rel="stylesheet" href="~/css/site.css">
+
+</head>
+<body>
+    <main>
+        <section>
+            <h2>Enrollment List</h2>
+            <table id="enrollments-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Student Name</th>
+                        <th>Course Name</th>
+                        <th>Professor Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Enrollment data will be populated dynamically -->
+                </tbody>
+            </table>
+            <div id="buttons-container">
+                <button id="edit-enrollment-button">Edit</button>
+                <button id="delete-enrollment-button">Delete</button>
+            </div>
+            <div id="add-enrollement">
+                <button onclick="addEnrollment()">Add Enrollment</button>
+            </div>
+        </section>
+    </main>
+    <script src="~/js/site.js"></script>
+</body>
+</html>
+
