@@ -1,1 +1,45 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Students";
+}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT DETAILS</title>
+    <link rel="stylesheet" href="~/css/site.css">
+
+</head>
+<body>
+
+    <main>
+        <section>
+            <h2>Students List</h2>
+            <table id="users-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                        <th>Gender</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- User data will be populated dynamically -->
+                </tbody>
+            </table>
+            <div id="buttons-container">
+                <button id="edit-student-button">Edit</button>
+                <button id="delete-student-button">Delete</button>
+            </div>
+            <div id="add-user">
+                <button onclick="addUser()">Add Student</button>
+            </div>
+        </section>
+    </main>
+    <script src="~/js/site.js"></script>
+</body>
+</html>
