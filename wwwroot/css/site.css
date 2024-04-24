@@ -1,0 +1,128 @@
+/* Global Styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the charts vertically */
+    gap: 100px; /* Adjust the space between the charts */
+    padding: 20px; /* Add some padding around the container */
+}
+
+canvas {
+    width: 100% !important; /* Make the canvas width responsive within the container */
+    max-width: 800px; /* Limit the canvas width to 200px */
+    height: auto !important; /* Adjust height automatically */
+    max-height: 1200px;
+    border: 2px solid #ffffff;
+    padding: 50px;
+    background-color: antiquewhite
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Example background color */
+}
+
+body{
+    /* Set background image */
+    background-image: url("/img/Background.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+header, footer {
+    background-color: green;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: #444;
+    padding: 10px;
+}
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex; /* Use flexbox for horizontal layout */
+    }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+            nav ul li:last-child {
+                margin-right: 0; /* Remove margin for the last item */
+            }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+            }
+
+main {
+    padding: 15px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid black;
+}
+
+    table th, table td {
+        border: 5px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: green;
+    }
+
+/* Media query for medium screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+        nav ul li {
+            margin-right: 0; 
+            margin-bottom: 10px; 
+        }
+}
+
+/* Media query for small screens (max-width: 425px) */
+@media screen and (max-width: 425px) {
+    header, footer {
+        padding: 10px; 
+        text-align: center; 
+    }
+
+    nav {
+        padding: 5px; 
+    }
+
+        nav ul li a {
+            padding: 8px; 
+        }
+
+    main {
+        padding: 10px; 
+    }
+
+    table th, table td {
+        padding: 4px; 
+        font-size: 12px; 
+    }
+}

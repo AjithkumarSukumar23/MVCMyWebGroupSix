@@ -1,0 +1,231 @@
+﻿@{
+    ViewData["Title"] = "Visualizations";
+    ViewData["PageClass"] = "Visualizations"; // Add this line to indicate it's the Visualizations page
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENROLLMENT STATSTICS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="~/css/site.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <h2>Enrollments per Course</h2>
+        <canvas id="courseEnrollmentsChart" width="200" height="100"></canvas>
+
+        <h2>Number of courses taken by each Professor</h2>
+        <canvas id="professorCoursesChart" width="200" height="100"></canvas>
+
+        <h2>Students per Country</h2>
+        <canvas id="studentCountryChart" width="200" height="100"></canvas>
+
+        <h2>Male vs Female Students</h2>
+        <canvas id="studentGenderChart" width="200" height="100"></canvas>
+    </div>
+
+    <script>
+        let courses = [
+            { id: 1, title: "Mathematics", description: "Learn basic math concepts", professor: "Smith" },
+            { id: 2, title: "Physics", description: "Explore the world of physics", professor: "Johnson" },
+            { id: 3, title: "Programming", description: "Introduction to programming", professor: "Williams" },
+            { id: 4, title: "Biology", description: "Study of living organisms", professor: "Brown" },
+            { id: 5, title: "Chemistry", description: "Explore the composition of substances", professor: "Taylor" },
+            { id: 6, title: "History", description: "Understanding past events", professor: "Anderson" },
+            { id: 7, title: "Literature", description: "Explore literary works", professor: "Martinez" },
+            { id: 8, title: "Geography", description: "Study of the Earth's surface", professor: "Garcia" },
+            { id: 9, title: "Computer Science", description: "Introduction to computer programming", professor: "Hernandez" },
+            { id: 10, title: "Art", description: "Exploration of artistic expression", professor: "Young" }
+        ];
+
+        let users = [
+            { id: 1, name: "John Doe", email: "john@usf.edu", country: "USA", gender: "Male" },
+            { id: 2, name: "Jane Smith", email: "jane@usf.edu", country: "USA", gender: "Female" },
+            { id: 3, name: "Alice Johnson", email: "alice@usf.edu", country: "France", gender: "Female" },
+            { id: 4, name: "Bob Brown", email: "bob@usf.edu", country: "France", gender: "Male" },
+            { id: 5, name: "Eva Lee", email: "eva@usf.edu", country: "India", gender: "Female" },
+            { id: 6, name: "Mike Clark", email: "mike@usf.edu", country: "India", gender: "Male" },
+            { id: 7, name: "Sarah White", email: "sarah@usf.edu", country: "USA", gender: "Female" },
+            { id: 8, name: "David Lee", email: "david@usf.edu", country: "India", gender: "Male" },
+            { id: 9, name: "Emily Johnson", email: "emily@usf.edu", country: "France", gender: "Female" },
+            { id: 10, name: "Michael Smith", email: "michael@usf.edu", country: "USA", gender: "Male" },
+            { id: 11, name: "Maria Garcia", email: "maria@usf.edu", country: "India", gender: "Female" },
+            { id: 12, name: "Daniel Martinez", email: "daniel@usf.edu", country: "France", gender: "Male" },
+            { id: 13, name: "Laura Taylor", email: "laura@usf.edu", country: "USA", gender: "Female" },
+            { id: 14, name: "Carlos Hernandez", email: "carlos@usf.edu", country: "India", gender: "Male" },
+            { id: 15, name: "Sophia Brown", email: "sophia@usf.edu", country: "France", gender: "Female" },
+            { id: 16, name: "William Lee", email: "william@usf.edu", country: "USA", gender: "Male" },
+            { id: 17, name: "Olivia Johnson", email: "olivia@usf.edu", country: "India", gender: "Female" },
+            { id: 18, name: "James Garcia", email: "james@usf.edu", country: "France", gender: "Male" },
+            { id: 19, name: "Isabella Clark", email: "isabella@usf.edu", country: "USA", gender: "Female" },
+            { id: 20, name: "Alexander Smith", email: "alexander@usf.edu", country: "India", gender: "Male" }
+        ];
+
+        let enrollments = [
+            { id: 1, userId: 1, courseId: 2 },
+            { id: 2, userId: 2, courseId: 1 },
+            { id: 3, userId: 2, courseId: 2 },
+            { id: 4, userId: 3, courseId: 3 },
+            { id: 5, userId: 4, courseId: 2 },
+            { id: 6, userId: 5, courseId: 1 },
+            { id: 7, userId: 6, courseId: 1 },
+            { id: 8, userId: 7, courseId: 3 },
+            { id: 9, userId: 8, courseId: 2 },
+            { id: 10, userId: 9, courseId: 1 },
+            { id: 11, userId: 10, courseId: 3 },
+            { id: 12, userId: 11, courseId: 4 },
+            { id: 13, userId: 12, courseId: 5 },
+            { id: 14, userId: 13, courseId: 6 },
+            { id: 15, userId: 14, courseId: 7 },
+            { id: 16, userId: 15, courseId: 8 },
+            { id: 17, userId: 16, courseId: 9 },
+            { id: 18, userId: 17, courseId: 10 },
+            { id: 19, userId: 18, courseId: 1 },
+            { id: 20, userId: 19, courseId: 2 }
+        ];
+
+        // Chart 1: Number of enrollments per course
+        function generateCourseEnrollments() {
+            let courseEnrollments = {};
+
+            courses.forEach(course => {
+                const enrollmentCount = enrollments.filter(enrollment => enrollment.courseId === course.id).length;
+                courseEnrollments[course.title] = enrollmentCount;
+            });
+
+            return courseEnrollments;
+        }
+
+        // Chart 2: Number of courses per professor
+        function generateProfessorCourses() {
+            let professorCourses = {};
+
+            courses.forEach(course => {
+                const professor = course.professor;
+                if (!professorCourses[professor]) {
+                    professorCourses[professor] = 1;
+                } else {
+                    professorCourses[professor]++;
+                }
+            });
+
+            return professorCourses;
+        }
+
+        // Chart 3: Number of students from each country
+        function generateStudentCountry() {
+            let studentCountry = {};
+
+            users.forEach(user => {
+                const country = user.country;
+                if (!studentCountry[country]) {
+                    studentCountry[country] = 1;
+                } else {
+                    studentCountry[country]++;
+                }
+            });
+
+            return studentCountry;
+        }
+
+        // Chart 4: Number of male and female students
+        function generateStudentGender() {
+            let studentGender = {
+                Male: 0,
+                Female: 0
+            };
+
+            users.forEach(user => {
+                const gender = user.gender;
+                if (gender === 'Male') {
+                    studentGender.Male++;
+                } else if (gender === 'Female') {
+                    studentGender.Female++;
+                }
+            });
+
+            return studentGender;
+        }
+
+        // Function to create a chart
+        function createChart(canvasId, data, label, chartType) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+
+            new Chart(ctx, {
+                type: chartType,
+                data: {
+                    labels: Object.keys(data),
+                    datasets: [{
+                        label: label,
+                        data: Object.values(data),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(153, 102, 255, 0.5)',
+                            'rgba(255, 159, 64, 0.5)'
+                        ],
+                        borderColor: [
+                            'rgba(25, 25, 25, 1)', // Dark black border color
+                            'rgba(25, 25, 25, 1)', // Dark black border color
+                            'rgba(25, 25, 25, 1)', // Dark black border color
+                            'rgba(25, 25, 25, 1)', // Dark black border color
+                            'rgba(25, 25, 25, 1)', // Dark black border color
+                            'rgba(25, 25, 25, 1)'  // Dark black border color
+                        ],
+                        borderWidth: 1 // Set border width to make it visible
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                fontColor: "rgba(25, 25, 25, 1)", // Set text color to dark black
+                            },
+                            gridLines: {
+                                color: "rgba(25, 25, 25, 0.1)" // Set grid lines color to light gray
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                fontColor: "rgba(25, 25, 25, 1)" // Set text color to dark black
+                            },
+                            gridLines: {
+                                color: "rgba(25, 25, 25, 0.1)" // Set grid lines color to light gray
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+        // Generate and display the charts
+        document.addEventListener("DOMContentLoaded", function () {
+            const courseEnrollments = generateCourseEnrollments();
+            createChart('courseEnrollmentsChart', courseEnrollments, 'Enrollments per Course', 'bar');
+
+            const professorCourses = generateProfessorCourses();
+            createChart('professorCoursesChart', professorCourses, 'Courses per Professor', 'pie');
+
+            const studentCountry = generateStudentCountry();
+            createChart('studentCountryChart', studentCountry, 'Students per Country', 'doughnut');
+
+            const studentGender = generateStudentGender();
+            createChart('studentGenderChart', studentGender, 'Male vs Female Students', 'line');
+
+        });
+    </script>
+</body>
+</html>

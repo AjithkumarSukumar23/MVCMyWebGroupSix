@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVCMyWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MVCMyWeb.styles.css" asp-append-version="true" />
+</head>
+<body>
+     <header>
+            <h1>Welcome to Enrollment Platform</h1>
+      </header>
+    <nav>
+        <ul>
+            <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Courses">Courses</a></li>
+            <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Students">Students</a></li>
+            <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Enrollments">Enrollments</a></li>
+            <li><a class ="nav-link" asp-area="" asp-controller="Home" asp-action="Visualizations">Charts</a></li>
+            <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="AboutUS">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+   @*  <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - MVCMyWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
