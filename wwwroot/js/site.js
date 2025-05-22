@@ -14,7 +14,7 @@ let courses = [
 
 
 let users = [
-    { id: 1, name: "John Doe", email: "john@usf.edu", country: "USA", gender: "Males" },
+    { id: 1, name: "John Doe", email: "john@usf.edu", country: "USA", gender: "Maless" },
     { id: 2, name: "Jane Smith", email: "jane@usf.edu", country: "USA", gender: "Female" },
     { id: 3, name: "Alice Johnson", email: "alice@usf.edu", country: "France", gender: "Female" },
     { id: 4, name: "Bob Brown", email: "bob@usf.edu", country: "France", gender: "Male" },
